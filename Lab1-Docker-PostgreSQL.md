@@ -79,10 +79,7 @@ docker run hello-world
 ```
 
 **บันทึกผลการทดลอง - การเตรียมความพร้อม:**
-```
-<img width="859" height="497" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 20 12" src="https://github.com/user-attachments/assets/02807102-e319-49b1-97bb-3dddb8521981" />
-
-```
+<img width="859" height="497" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 20 12" src="https://github.com/user-attachments/assets/bd4ee74c-b8f4-44cf-8fd0-358d1e773ead" />
 
 ## ขั้นตอนการทดลอง
 
@@ -104,9 +101,8 @@ docker inspect postgres
 
 
 **บันทึกผลการทดลอง - Step 1:**
-```
-ใส่ Screenshot ของผลการรัน docker images ที่นี่
-```
+<img width="856" height="495" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 24 23" src="https://github.com/user-attachments/assets/3a6206ec-e0b6-4fe5-8baa-6e76cc9981ee" />
+
 
 ### Step 2: Create Docker Volume for Data Persistence
 
@@ -127,9 +123,8 @@ docker volume create postgres-config
 **คำอธิบาย**: Docker Volume จะทำให้ข้อมูลคงอยู่แม้ Container จะถูกลบ
 
 **บันทึกผลการทดลอง - Step 2:**
-```
-ใส่ Screenshot ของผลการรัน docker volume ls และ docker volume inspect postgres-data ที่นี่
-```
+<img width="860" height="495" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 27 03" src="https://github.com/user-attachments/assets/ad2d51ee-282b-4a14-9e27-655b62175291" />
+
 
 ### Step 3: Create PostgreSQL Container with Volume
 
@@ -161,9 +156,8 @@ docker run --name postgres-lab \
 - `-c shared_buffers=256MB`: กำหนด shared buffers
 
 **บันทึกผลการทดลอง - Step 3:**
-```
-ใส่ Screenshot ของผลการรัน docker run ที่นี่
-```
+<img width="853" height="493" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 30 53" src="https://github.com/user-attachments/assets/93c97ae1-63cc-4ec3-8863-d6d3798a26b3" />
+
 
 ### Step 4: Verify Container Status and Resource Usage
 
@@ -182,12 +176,10 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผลการทดลอง - Step 4:**
-```
-ใส่ Screenshot ของ:
-1. ผลการรัน docker ps
-2. ส่วนหนึ่งของ docker logs postgres-lab
-3. ผลการรัน docker stats
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 33 00" src="https://github.com/user-attachments/assets/935b6b91-da60-4bdd-aa53-e33eee85e8bb" />
+
+<img width="872" height="76" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 33 43" src="https://github.com/user-attachments/assets/1d645f5a-0440-4172-92ad-181df3a4c4d7" />
+
 
 ### Step 5: Connect to PostgreSQL และตรวจสอบ Configuration
 
@@ -227,12 +219,10 @@ WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_
 ```
 
 **บันทึกผลการทดลอง - Step 5:**
-```
-ใส่ Screenshot ของ:
-1. ผลการรัน SELECT version();
-2. ผลการรัน SHOW shared_buffers; SHOW work_mem; SHOW maintenance_work_mem;SHOW effective_cache_size;
-3. ผลการรัน \l และ \du
-```
+<img width="948" height="482" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 37 46" src="https://github.com/user-attachments/assets/55653d3e-93d6-4ab3-82fc-b7bffccc071c" />
+
+<img width="1034" height="310" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 37 59" src="https://github.com/user-attachments/assets/1444a79e-184a-495b-8588-630d8ee37ca2" />
+
 
 ### Step 6: Database Management Operations
 
@@ -271,12 +261,8 @@ WHERE datname = 'lab_db';
 ```
 
 **บันทึกผลการทดลอง - Step 6:**
-```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง lab_db
-2. ผลการรัน \l+ แสดงฐานข้อมูลทั้งหมด
-3. ผลการ query ข้อมูลฐานข้อมูล
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 43 13" src="https://github.com/user-attachments/assets/291a5b36-397a-4aed-824b-c618564c7cfd" />
+
 
 ### Step 7: User และ Role Management
 
@@ -329,12 +315,7 @@ WHERE r.rolname NOT LIKE 'pg_%';
 ```
 
 **บันทึกผลการทดลอง - Step 7:**
-```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง users ทั้งหมด
-2. ผลการรัน \du+
-3. ผลการ query pg_roles
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 44 54" src="https://github.com/user-attachments/assets/41f6d677-eabf-42c7-9d47-942aca9935ed" />
 
 ### Step 8: การจัดการสิทธิ์ User
 
@@ -391,16 +372,14 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 ```
 
 **บันทึกผลการทดลอง - Step 8:**
-```
-ใส่ Screenshot ของ:
-1. ผลการ ALTER USER commands
-2. ผลการรัน \dp test_permissions
-3. ผลการ GRANT commands
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 17 47 44" src="https://github.com/user-attachments/assets/9f9cc773-b1c8-4c68-a82a-65fb82f0685f" />
+
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
-
+ตอบ postgres=arwdDxtm/postgres หมายถึง
+ผู้ใช้ postgres มีสิทธิ์ครบทุกอย่างในตาราง (เพิ่ม อ่าน แก้ ลบ สร้าง trigger และ foreign key)
+โดยสิทธินี้ถูกมอบโดยผู้ใช้ postgres เอง.
 
  ```
 ### Step 9: Schema Management และ Namespace
