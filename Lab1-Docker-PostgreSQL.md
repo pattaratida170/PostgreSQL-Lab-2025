@@ -481,13 +481,10 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 ```
 
 **บันทึกผลการทดลอง - Step 9:**
-```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง schemas (\dn+)
-2. ผลการสร้างตารางในแต่ละ schema
-3. ผลการใส่ข้อมูลและ query ข้อมูล
-4. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 49 08" src="https://github.com/user-attachments/assets/65f735cd-a543-4d82-be67-f8021b161272" />
+
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 48 20" src="https://github.com/user-attachments/assets/65fea187-1304-47ce-a30d-cc980435e460" />
+
 
 ### Step 10: ทดสอบการเข้าถึง Schema และ Search Path
 
@@ -548,13 +545,10 @@ SET search_path TO public;
 ```
 
 **บันทึกผลการทดลอง - Step 10:**
-```
-ใส่ Screenshot ของ:
-1. ผลการแสดง search_path
-2. ผลการ query ภายใน schema เดียวกัน (sales.customers + sales.orders)
-3. ผลการ JOIN ข้าม schemas (sales + hr + inventory)
-4. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 51 50" src="https://github.com/user-attachments/assets/a0a1df4d-472a-480d-be49-8ac39588cb09" />
+
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 51 55" src="https://github.com/user-attachments/assets/36417c7e-a7ee-47f0-ab1e-979e75a3906e" />
+
 
 ### Step 11: ทดสอบการเชื่อมต่อจาก User อื่น
 
@@ -580,12 +574,8 @@ INSERT INTO test_permissions (name) VALUES ('Test by lab_user'); -- ทำไม
 ```
 
 **บันทึกผลการทดลอง - Step 11:**
-```
-ใส่ Screenshot ของ:
-1. ผลการเชื่อมต่อด้วย lab_user
-2. ผลการทดสอบสิทธิ์ต่างๆ
-3. ข้อความ error (ถ้ามี) เมื่อไม่มีสิทธิ์
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 55 07" src="https://github.com/user-attachments/assets/2771516a-338f-4799-b71e-f40a312d5d36" />
+
 
 ### Step 12: การจัดการ Volume และ Data Persistence
 
@@ -615,12 +605,8 @@ docker run --name postgres-backup-test \
 ```
 
 **บันทึกผลการทดลอง - Step 12:**
-```
-ใส่ Screenshot ของ:
-1. ผลการหยุดและเริ่ม Container
-2. ยืนยันว่าข้อมูลยังอยู่หลังจาก restart
-3. ผลการสร้าง container พร้อม bind mount
-```
+<img width="1081" height="423" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 56 54" src="https://github.com/user-attachments/assets/67867dd0-2427-4271-be77-018be67f9987" />
+
 
 ## การตรวจสอบผลงานและ Performance
 
@@ -640,9 +626,8 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผล Checkpoint 1:**
-```
-ใส่ Screenshot ของ resource usage และ volume information ที่นี่
-```
+<img width="1286" height="463" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 58 29" src="https://github.com/user-attachments/assets/7c39eaa3-6a01-43fd-9fdc-14d6503af4bc" />
+
 
 ### Checkpoint 2: Database Performance และ Configuration
 ```sql
@@ -688,12 +673,8 @@ WHERE state = 'active';
 ```
 
 **บันทึกผล Checkpoint 2:**
-```
-ใส่ Screenshot ของ:
-1. Database statistics
-2. Memory configuration
-3. Active connections
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 19 59 55" src="https://github.com/user-attachments/assets/cded34ca-3d3f-4495-8b2c-4fba1b36d3a1" />
+
 
 ## การแก้ไขปัญหาเบื้องต้น
 
@@ -750,15 +731,19 @@ docker volume create postgres-data
 ```bash
 # พื้นที่สำหรับคำตอบ - เขียน command ที่ใช้
 
+docker run -d \
+  --name multi-postgres \
+  -e POSTGRES_PASSWORD=multipass123 \
+  -p 5434:5432 \
+  --memory=1.5g \
+  --cpus=1.5 \
+  -v multi-postgres-data:/var/lib/postgresql/data \
+  postgres:15
 ```
 
 **ผลการทำแบบฝึกหัด 1:**
-```
-ใส่ Screenshot ของ:
-1. คำสั่งที่ใช้สร้าง container
-2. docker ps แสดง container ใหม่
-3. docker stats แสดงการใช้ resources
-```
+<img width="1470" height="956" alt="ภาพถ่ายหน้าจอ 2568-10-11 เวลา 20 12 37" src="https://github.com/user-attachments/assets/fed69769-f9eb-4a32-9be2-f403f22b0c09" />
+
 
 ### แบบฝึกหัด 2: User Management และ Security
 **คำสั่ง**: สร้างระบบผู้ใช้ที่สมบูรณ์:
@@ -954,7 +939,19 @@ INSERT INTO ecommerce.order_items (order_id, product_id, quantity, price) VALUES
 
 **คำตอบ Quiz 1:**
 ```
-เขียนคำตอบที่นี่
+1.	•	Named Volume: จัดการโดย Docker, ปลอดภัย, พกพาง่าย → ใช้เก็บข้อมูลจริง
+	•	Bind Mount: ผูกกับโฟลเดอร์ในเครื่อง → ใช้เชื่อมไฟล์ config/script
+2.	•	เป็นหน่วยความจำ cache ของ PostgreSQL
+	•	ตั้ง ~25% เพื่อสมดุลระหว่าง DB กับ OS
+	•	มากไปหรือน้อยไปทำให้ระบบช้าได้
+3.	•	แบ่งหมวดข้อมูล (module/tenant)
+	•	มี table ชื่อซ้ำได้ในคนละ schema
+	•	ควบคุมสิทธิ์และอัปเดตแยกส่วนได้
+4.	•	ติดตั้งง่าย ไม่ชนกัน
+	•	ใช้เวอร์ชันเดียวกันทุกเครื่อง
+	•	ทดสอบ/รีเซ็ตเร็ว
+	•	รองรับ CI/CD
+
 ```
 
 
